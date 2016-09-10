@@ -31,6 +31,7 @@ int main(int argc, char* argv[])
 	bool strFinded = false;
 	int currentLine = 1;
 	string line;
+	cout << "¬ данный поток будут выведены номера строк входного файла (1 аргумент), которые содержат искомую дл€ поиска строку (2 аргумент)" << "\n";
 	while (getline(file, line))
 	{
 		for (int j = 0; j < line.length(); ++j)
