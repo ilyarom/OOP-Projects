@@ -12,47 +12,36 @@ int main(int argc, char* argv[])
 	setlocale(LC_ALL, "rus");
 	if (argc != 3)
 	{
-		cout << "Некорректно введены входные данные, сначала указывается имя файла, далее через пробел строка, которую нужно найти" << "\n";
+		cout << "Недостаточно аргументов. Формат входных данных: <именование файла> <строка для поиска>" << "\n";
 		return 1;
 	}
 	ifstream file(argv[1]);
-	if (!file.good())
+	if (!file.is_open())
 	{
-		cout << "Некорректно введены входные данные, сначала указывается имя файла, далее через пробел строка, которую нужно найти" << "\n";
+		cout << "Невозможно открыть файл. Проверьте правильность вводимых данных или убедитесь в наличии данного файла." << "\n";
 		return 1;
 	}
-	string strToFind = string(argv[2]);
-	if (strToFind.length() == 0)
+	string strToFind = argv[2];
+	if (strToFind.empty())
 	{
-		cout << "Некорректно введены входные данные, сначала указывается имя файла, далее через пробел строка, которую нужно найти" << "\n";
+		cout << "Задано пустое значения для параметра строки для поиска." << "\n";
 		return 1;
 	}
-	int i = 0;
 	bool strFinded = false;
+	int strPosition;
 	int currentLine = 1;
 	string line;
 	cout << "В данный поток будут выведены номера строк входного файла (1 аргумент), которые содержат искомую для поиска строку (2 аргумент)" << "\n";
 	while (getline(file, line))
 	{
-		for (int j = 0; j < line.length(); ++j)
+		strPosition = line.find(strToFind);
+		if (strPosition != -1)
 		{
-			if (line[j] == strToFind[i])
-			{
-				++i;
-				if (i == strToFind.length())
-				{
-					cout << currentLine << "\n";
-					strFinded = true;
-				}
-			}
-			else
-			{
-				i = 0;
-			}
+			cout << currentLine << "\n";
+			strFinded = true;
 		}
 		++currentLine;
-		i = 0;
-	}
+	};
 	if (!strFinded)
 	{
 		cout << "Text not found" << "\n";
