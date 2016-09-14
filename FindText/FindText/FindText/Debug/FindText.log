@@ -1,16 +1,9 @@
-﻿Сборка начата 14.09.2016 13:45:33.
+﻿Сборка начата 14.09.2016 14:02:45.
      1>Проект "D:\C\Programs\Git\OOP-Projects\FindText\FindText\FindText\FindText.vcxproj" в узле 2 (целевые объекты Build).
      1>Link:
          FindText.vcxproj -> D:\C\Programs\Git\OOP-Projects\FindText\FindText\Debug\FindText.exe
-       PostBuildEvent:
-         test.bat "D:\C\Programs\Git\OOP-Projects\FindText\FindText\Debug\FindText.exe"
-         :VCEnd
-         "test.bat" не является внутренней или внешней
-         командой, исполняемой программой или пакетным файлом.
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: выход из команды "test.bat "D:\C\Programs\Git\OOP-Projects\FindText\FindText\Debug\FindText.exe"
-C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: :VCEnd" с кодом 9009.
-     1>Сборка проекта "D:\C\Programs\Git\OOP-Projects\FindText\FindText\FindText\FindText.vcxproj" завершена (целевые объекты Build) с ошибкой.
+     1>Сборка проекта "D:\C\Programs\Git\OOP-Projects\FindText\FindText\FindText\FindText.vcxproj" завершена (целевые объекты Build).
 
-Ошибка сборки.
+Сборка успешно завершена.
 
 Затраченное время: 00:00:00.07
