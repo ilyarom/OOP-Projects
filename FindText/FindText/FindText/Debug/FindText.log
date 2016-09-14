@@ -1,14 +1,16 @@
-﻿Сборка начата 10.09.2016 19:54:15.
+﻿Сборка начата 14.09.2016 13:45:33.
      1>Проект "D:\C\Programs\Git\OOP-Projects\FindText\FindText\FindText\FindText.vcxproj" в узле 2 (целевые объекты Build).
-     1>ClCompile:
-         D:\C\VC\bin\CL.exe /c /ZI /nologo /W4 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\FindText.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt FindText.cpp
-         FindText.cpp
-       Link:
-         D:\C\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\C\Programs\Git\OOP-Projects\FindText\FindText\Debug\FindText.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\C\Programs\Git\OOP-Projects\FindText\FindText\Debug\FindText.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\C\Programs\Git\OOP-Projects\FindText\FindText\Debug\FindText.lib" /MACHINE:X86 Debug\FindText.obj
-         Debug\stdafx.obj
+     1>Link:
          FindText.vcxproj -> D:\C\Programs\Git\OOP-Projects\FindText\FindText\Debug\FindText.exe
-     1>Сборка проекта "D:\C\Programs\Git\OOP-Projects\FindText\FindText\FindText\FindText.vcxproj" завершена (целевые объекты Build).
+       PostBuildEvent:
+         test.bat "D:\C\Programs\Git\OOP-Projects\FindText\FindText\Debug\FindText.exe"
+         :VCEnd
+         "test.bat" не является внутренней или внешней
+         командой, исполняемой программой или пакетным файлом.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: выход из команды "test.bat "D:\C\Programs\Git\OOP-Projects\FindText\FindText\Debug\FindText.exe"
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: :VCEnd" с кодом 9009.
+     1>Сборка проекта "D:\C\Programs\Git\OOP-Projects\FindText\FindText\FindText\FindText.vcxproj" завершена (целевые объекты Build) с ошибкой.
 
-Сборка успешно завершена.
+Ошибка сборки.
 
-Затраченное время: 00:00:01.05
+Затраченное время: 00:00:00.07

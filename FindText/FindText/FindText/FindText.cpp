@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 	string strToFind = argv[2];
 	if (strToFind.empty())
 	{
-		cout << "Задано пустое значения для параметра строки для поиска." << "\n";
+		cout << "Задано пустое значение для параметра строки для поиска." << "\n";
 		return 1;
 	}
 	bool strFinded = false;
@@ -45,7 +45,6 @@ int main(int argc, char* argv[])
 	if (!strFinded)
 	{
 		cout << "Text not found" << "\n";
-		return 1;
 	}
 	return 0;
 }
