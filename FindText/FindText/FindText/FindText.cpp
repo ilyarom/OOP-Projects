@@ -28,14 +28,12 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 	bool strFinded = false;
-	int strPosition;
 	int currentLine = 1;
 	string line;
 	cout << "¬ данный поток будут выведены номера строк входного файла (1 аргумент), которые содержат искомую дл€ поиска строку (2 аргумент)" << "\n";
 	while (getline(file, line))
 	{
-		strPosition = line.find(strToFind);
-		if (strPosition != -1)
+		if (line.find(strToFind) != string::npos)
 		{
 			cout << currentLine << "\n";
 			strFinded = true;
