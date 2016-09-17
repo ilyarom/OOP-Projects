@@ -44,7 +44,7 @@ string dec2binRev(int decNumber) //ѕреобразует число из 10-ичной системы счистле
 
 int bin2dec(string reversedBinNumber) // ѕереводит число из 2-ичной системы счистлени€ в 10-ичную
 {
-	int maxDegree = reversedBinNumber.length() - 1;
+	size_t maxDegree = reversedBinNumber.length() - 1;
 	int sum = 0;
 	int j = 0;
 	for (int i = maxDegree; i >= 0; --i)
