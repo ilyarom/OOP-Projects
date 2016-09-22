@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int iPow(int i)
+int Pow(int i)
 {
 	int result = 1;
 	for (int k = 0; k <= i; ++k)
@@ -19,7 +19,7 @@ int iPow(int i)
 	return result;
 }
 
-string dec2binRev(int decNumber) //Преобразует число из 10-ичной системы счистления в 2-ичную. Выходное двоичное число реверсируется, передние нули обрезаются
+string Dec2binRev(int decNumber) //Преобразует число из 10-ичной системы счистления в 2-ичную. Выходное двоичное число реверсируется, передние нули обрезаются
 {
 	bool firstNull = true;
 	int dividend = decNumber;
@@ -42,7 +42,7 @@ string dec2binRev(int decNumber) //Преобразует число из 10-ичной системы счистле
 	return reversedBinNumber;
 }
 
-int bin2dec(string reversedBinNumber) // Переводит число из 2-ичной системы счистления в 10-ичную
+int Bin2dec(string reversedBinNumber) // Переводит число из 2-ичной системы счистления в 10-ичную
 {
 	size_t maxDegree = reversedBinNumber.length() - 1;
 	int sum = 0;
@@ -51,7 +51,7 @@ int bin2dec(string reversedBinNumber) // Переводит число из 2-ичной системы счис
 	{
 		if (reversedBinNumber[j] == '1')
 		{
-			sum = sum + iPow(i);
+			sum = sum + Pow(i);
 		};
 	}
 	return sum;
@@ -77,15 +77,14 @@ int main(int argc, char* argv[])
 		cout << "Некорректно введены входные данные, на вход указывается входной байт. Число должно быть от 0 до 255" << "\n";
 		return 1;
 	}
-	cout << decNumber << "\n";
 	if (!(decNumber >= 0 && decNumber <= 255))
 	{
 		cout << "Некорректно введены входные данные, на вход указывается входной байт. Число должно быть от 0 до 255" << "\n";
 		return 1;
 	}
 	string reversedBinNumber;
-	reversedBinNumber = dec2binRev(decNumber);
-	decNumber = bin2dec(reversedBinNumber);
+	reversedBinNumber = Dec2binRev(decNumber);
+	decNumber = Bin2dec(reversedBinNumber);
 	cout << decNumber << "\n";
 	return 0;
 }
