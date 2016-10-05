@@ -8,6 +8,10 @@ if ERRORLEVEL 1 goto err
 fc out2.txt needed_out2.txt
 if ERRORLEVEL 1 goto err
 
+%PROGRAM% file3.txt >> out3.txt
+fc out3.txt needed_out3.txt
+if ERRORLEVEL 1 goto err
+
 %PROGRAM% non-existing-file
 if NOT ERRORLEVEL 1 goto err
 
