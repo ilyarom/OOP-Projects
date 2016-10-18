@@ -8,6 +8,8 @@
 #include <map>
 using namespace std;
 
+
+
 int main()
 {
 	setlocale(LC_ALL, "rus");
@@ -29,7 +31,7 @@ int main()
 	}
 	for (auto it = WordArchive.begin(); it != WordArchive.end(); ++it)
 	{
-		cout << (*it).first << " : " << (*it).second << endl;
+		cout << (*it).first << " -> " << (*it).second << endl;
 	}
     return 0;
 }

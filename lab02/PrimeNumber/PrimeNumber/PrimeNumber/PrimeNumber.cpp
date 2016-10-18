@@ -19,7 +19,7 @@ int main()
 	}
 	vector<bool> numbers(n + 1, true);
 	numbers[1] = false;
-	for (size_t i = 2; ((i*i) <= n); ++i)
+    for (size_t i = 2; ((i*i) <= n); ++i)
 	{
 		if (numbers[i])
 		{
