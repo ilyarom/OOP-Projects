@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WordFerequency", "WordFerequency\WordFerequency.vcxproj", "{58A7353A-1F34-4CA0-A30A-8D313383EB2D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{8E21AB2B-C4D4-4D4F-B9C5-2555EACEABF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{58A7353A-1F34-4CA0-A30A-8D313383EB2D}.Release|x64.Build.0 = Release|x64
 		{58A7353A-1F34-4CA0-A30A-8D313383EB2D}.Release|x86.ActiveCfg = Release|Win32
 		{58A7353A-1F34-4CA0-A30A-8D313383EB2D}.Release|x86.Build.0 = Release|Win32
+		{8E21AB2B-C4D4-4D4F-B9C5-2555EACEABF4}.Debug|x64.ActiveCfg = Debug|x64
+		{8E21AB2B-C4D4-4D4F-B9C5-2555EACEABF4}.Debug|x64.Build.0 = Debug|x64
+		{8E21AB2B-C4D4-4D4F-B9C5-2555EACEABF4}.Debug|x86.ActiveCfg = Debug|Win32
+		{8E21AB2B-C4D4-4D4F-B9C5-2555EACEABF4}.Debug|x86.Build.0 = Debug|Win32
+		{8E21AB2B-C4D4-4D4F-B9C5-2555EACEABF4}.Release|x64.ActiveCfg = Release|x64
+		{8E21AB2B-C4D4-4D4F-B9C5-2555EACEABF4}.Release|x64.Build.0 = Release|x64
+		{8E21AB2B-C4D4-4D4F-B9C5-2555EACEABF4}.Release|x86.ActiveCfg = Release|Win32
+		{8E21AB2B-C4D4-4D4F-B9C5-2555EACEABF4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

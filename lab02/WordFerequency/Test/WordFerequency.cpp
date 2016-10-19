@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "..\WordFerequency\WordFerequency.h"
+#include "../WordFerequency/WordFerequency.h"
 
 using namespace std;
 
@@ -10,7 +10,7 @@ WordFerequency CalculateWordArchive(istream &input)
 	while (!input.eof())
 	{
 		word = "";
-	    input >> word;
+		input >> word;
 		auto search = WordArchive.count(word);
 		if (search)
 		{
