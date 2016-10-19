@@ -8,14 +8,14 @@ int main(int argc, char* argv[])
 	setlocale(LC_ALL, "rus");
 	if (argc != 4)
 	{
-		cout << "Недостаточно аргументов. Формат входных данных: <искомая строка> <строка для поиска> <строка заменитель>" << "\n";
+		cout << "Not enough arguments.The format of the input data : <search string> <string for searching> <string replacer>" << "\n";
 		return 1;
 	}
 	string subject = argv[1];
 	string search = argv[2];
 	if (search == "")
 	{
-		cout << "Строка для поиска не может быть пустой" << "\n";
+		cout << "Search term can't be empty" << "\n";
 		return 1;
 	}
 	string replace = argv[3];

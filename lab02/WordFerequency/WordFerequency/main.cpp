@@ -9,9 +9,9 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "rus");	
-	WordFerequency WordArchive;
-	WordArchive = CalculateWordArchive(cin);
-	for (auto it = WordArchive.begin(); it != WordArchive.end(); ++it)
+	WordFerequency wordArchive;
+	wordArchive = CalculateWordArchive(cin);
+	for (auto it = wordArchive.begin(); it != wordArchive.end(); ++it)
 	{
 		cout << (*it).first << " -> " << (*it).second << endl;
 	}
