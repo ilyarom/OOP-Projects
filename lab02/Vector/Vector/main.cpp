@@ -20,7 +20,7 @@ int main()
 		++i;
 	    numbers.push_back(number);
 	}
-	CalculateVector(numbers);
+	TransformVector(numbers);
 	for (i = 0; i < numbers.size(); ++i)
 	{
 		cout << numbers[i] << "\n";

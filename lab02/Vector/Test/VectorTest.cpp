@@ -56,37 +56,45 @@ BOOST_AUTO_TEST_CASE(get_max_element_fractional)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(CalculateVector_function)
+BOOST_AUTO_TEST_SUITE(TransformVector_function)
 
-BOOST_AUTO_TEST_CASE(Calculate_empty_vector)
+BOOST_AUTO_TEST_CASE(Transform_empty_vector)
 {
 	vector<double> Vector = {};
-	CalculateVector(Vector);
-	vector <double> neededVector = {};
-	BOOST_CHECK(Vector == neededVector);
+	TransformVector(Vector);
+	vector <double> sampleVector = {};
+	BOOST_CHECK(Vector == sampleVector);
 }
 
-BOOST_AUTO_TEST_CASE(Calculate_standart_vector)
+BOOST_AUTO_TEST_CASE(Transform_one_element_vector)
+{
+	vector<double> Vector = {4};
+	vector <double> sampleVector = Vector;
+	TransformVector(Vector);
+	BOOST_CHECK(Vector == sampleVector);
+}
+
+BOOST_AUTO_TEST_CASE(Transform_standart_vector)
 {
 	vector<double> Vector = {1, 2, 4, 5};
-	CalculateVector(Vector);
-	vector <double> neededVector = {5, 10, 20, 25};
-	BOOST_CHECK(Vector == neededVector);
+	TransformVector(Vector);
+	vector <double> sampleVector = {5, 10, 20, 25};
+	BOOST_CHECK(Vector == sampleVector);
 }
 
-BOOST_AUTO_TEST_CASE(Calculate_standart_vector_negative)
+BOOST_AUTO_TEST_CASE(Transform_standart_vector_negative)
 {
 	vector<double> Vector = {4, -1, -2, 1 };
-	CalculateVector(Vector);
-	vector <double> neededVector = {-8, -2, 2, 4};
-	BOOST_CHECK(Vector == neededVector);
+	TransformVector(Vector);
+	vector <double> sampleVector = {-8, -2, 2, 4};
+	BOOST_CHECK(Vector == sampleVector);
 }
 
-BOOST_AUTO_TEST_CASE(calculate_standart_vector_fractional)
+BOOST_AUTO_TEST_CASE(Transform_standart_vector_fractional)
 {
 	vector<double> Vector = { 0.1, 1.5, 2.5, 3.5 };
-	CalculateVector(Vector);
-	vector <double> neededVector = { 3.5, 52.5, 87.5, 122.5 };
-	BOOST_CHECK(Vector == neededVector);
+	TransformVector(Vector);
+	vector <double> sampleVector = { 3.5, 52.5, 87.5, 122.5 };
+	BOOST_CHECK(Vector == sampleVector);
 }
 BOOST_AUTO_TEST_SUITE_END()

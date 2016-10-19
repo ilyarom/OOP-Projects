@@ -16,7 +16,7 @@ double GetMaxElement(std::vector<double> &numbers)
 	return *max_element(numbers.begin(), numbers.end());
 }
 
-void CalculateVector(vector<double> &numbers)
+void TransformVector(vector<double> &numbers)
 {
 	if (numbers.size() != 0)
 	{

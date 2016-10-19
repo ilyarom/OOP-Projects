@@ -17,4 +17,4 @@ double GetMinElement(std::vector<double> &numbers);
 
 double GetMaxElement(std::vector<double> &numbers);
 
-void CalculateVector(vector<double> &numbers);
+void TransformVector(vector<double> &numbers);
