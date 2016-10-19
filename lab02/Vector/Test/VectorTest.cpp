@@ -8,51 +8,51 @@ using namespace std;
 
 BOOST_AUTO_TEST_SUITE(GetMinElement_function)
 
-BOOST_AUTO_TEST_CASE(get_min_element)
-{
-	vector<double> Vector = { 0, 1, 2, 3 };
-	GetMinElement(Vector);
-	BOOST_CHECK(GetMinElement(Vector) == 0);
-}
+	BOOST_AUTO_TEST_CASE(get_min_element)
+	{
+		vector<double> Vector = { 0, 1, 2, 3 };
+		GetMinElement(Vector);
+		BOOST_CHECK(GetMinElement(Vector) == 0);
+	}
 
-BOOST_AUTO_TEST_CASE(get_min_element_negative)
-{
-	vector<double> Vector = { 0, -1, 2, -3 };
-	GetMinElement(Vector);
-	BOOST_CHECK(GetMinElement(Vector) == -3);
-}
+	BOOST_AUTO_TEST_CASE(get_min_element_negative)
+	{
+		vector<double> Vector = { 0, -1, 2, -3 };
+		GetMinElement(Vector);
+		BOOST_CHECK(GetMinElement(Vector) == -3);
+	}
 
-BOOST_AUTO_TEST_CASE(get_min_element_fractional)
-{
-	vector<double> Vector = { 9.55, 1.54, 2.22, 3.22 };
-	GetMinElement(Vector);
-	BOOST_CHECK(GetMinElement(Vector) == 1.54);
-}
+	BOOST_AUTO_TEST_CASE(get_min_element_fractional)
+	{
+		vector<double> Vector = { 9.55, 1.54, 2.22, 3.22 };
+		GetMinElement(Vector);
+		BOOST_CHECK(GetMinElement(Vector) == 1.54);
+	}
 
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(GetMaxElement_function)
 
-BOOST_AUTO_TEST_CASE(get_max_element)
-{
-	vector<double> Vector = { 0, 1, 2, 3 };
-	GetMaxElement(Vector);
-	BOOST_CHECK(GetMaxElement(Vector) == 3);
-}
+	BOOST_AUTO_TEST_CASE(get_max_element)
+	{
+		vector<double> Vector = { 0, 1, 2, 3 };
+		GetMaxElement(Vector);
+		BOOST_CHECK(GetMaxElement(Vector) == 3);
+	}
 
-BOOST_AUTO_TEST_CASE(get_max_element_negative)
-{
-	vector<double> Vector = { 0, -1, 2, -3 };
-	GetMaxElement(Vector);
-	BOOST_CHECK(GetMaxElement(Vector) == 2);
-}
+	BOOST_AUTO_TEST_CASE(get_max_element_negative)
+	{
+		vector<double> Vector = { 0, -1, 2, -3 };
+		GetMaxElement(Vector);
+		BOOST_CHECK(GetMaxElement(Vector) == 2);
+	}
 
-BOOST_AUTO_TEST_CASE(get_max_element_fractional)
-{
-	vector<double> Vector = { 0, 1.54, 2.22, 3.22 };
-	GetMaxElement(Vector);
-	BOOST_CHECK(GetMaxElement(Vector) == 3.22);
-}
+	BOOST_AUTO_TEST_CASE(get_max_element_fractional)
+	{
+		vector<double> Vector = { 0, 1.54, 2.22, 3.22 };
+		GetMaxElement(Vector);
+		BOOST_CHECK(GetMaxElement(Vector) == 3.22);
+	}
 
 BOOST_AUTO_TEST_SUITE_END()
 
