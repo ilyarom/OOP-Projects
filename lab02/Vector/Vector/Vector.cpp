@@ -5,7 +5,6 @@ using namespace std;
 using boost::transform;
 using namespace std::placeholders;
 using namespace boost::phoenix::placeholders;
-using namespace boost::phoenix;
 
 double GetMinElement(std::vector<double> &numbers)
 {
