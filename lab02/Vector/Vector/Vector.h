@@ -17,4 +17,8 @@ double GetMinElement(std::vector<double> &numbers);
 
 double GetMaxElement(std::vector<double> &numbers);
 
+bool isMinNull(double minElement);
+
 void TransformVector(vector<double> &numbers);
+
+void SortVector(vector<double> &numbers)

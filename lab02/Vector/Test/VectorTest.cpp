@@ -10,23 +10,9 @@ BOOST_AUTO_TEST_SUITE(GetMinElement_function)
 
 	BOOST_AUTO_TEST_CASE(get_min_element)
 	{
-		vector<double> Vector = { 0, 1, 2, 3 };
+		vector<double> Vector = { 0, 1, -5, 3.33 };
 		GetMinElement(Vector);
-		BOOST_CHECK(GetMinElement(Vector) == 0);
-	}
-
-	BOOST_AUTO_TEST_CASE(get_min_element_negative)
-	{
-		vector<double> Vector = { 0, -1, 2, -3 };
-		GetMinElement(Vector);
-		BOOST_CHECK(GetMinElement(Vector) == -3);
-	}
-
-	BOOST_AUTO_TEST_CASE(get_min_element_fractional)
-	{
-		vector<double> Vector = { 9.55, 1.54, 2.22, 3.22 };
-		GetMinElement(Vector);
-		BOOST_CHECK(GetMinElement(Vector) == 1.54);
+		BOOST_CHECK(GetMinElement(Vector) == -5);
 	}
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -35,24 +21,40 @@ BOOST_AUTO_TEST_SUITE(GetMaxElement_function)
 
 	BOOST_AUTO_TEST_CASE(get_max_element)
 	{
-		vector<double> Vector = { 0, 1, 2, 3 };
+		vector<double> Vector = { 0, 1, -5.66, -5 };
 		GetMaxElement(Vector);
-		BOOST_CHECK(GetMaxElement(Vector) == 3);
+		BOOST_CHECK(GetMaxElement(Vector) == 1);
 	}
 
-	BOOST_AUTO_TEST_CASE(get_max_element_negative)
-	{
-		vector<double> Vector = { 0, -1, 2, -3 };
-		GetMaxElement(Vector);
-		BOOST_CHECK(GetMaxElement(Vector) == 2);
-	}
+BOOST_AUTO_TEST_SUITE_END()
 
-	BOOST_AUTO_TEST_CASE(get_max_element_fractional)
-	{
-		vector<double> Vector = { 0, 1.54, 2.22, 3.22 };
-		GetMaxElement(Vector);
-		BOOST_CHECK(GetMaxElement(Vector) == 3.22);
-	}
+BOOST_AUTO_TEST_SUITE(isMinNull_function)
+
+BOOST_AUTO_TEST_CASE(isMinNull_null)
+{
+	vector<double> Vector = { 0, 1, 2, 3 };
+	double minElement = GetMinElement(Vector);
+	BOOST_CHECK(isMinNull(minElement));
+}
+
+BOOST_AUTO_TEST_CASE(isMinNull_no_null)
+{
+	vector<double> Vector = { 0, -1, 2, -3 };
+	double minElement = GetMinElement(Vector);
+	BOOST_CHECK(!isMinNull(minElement));
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(SortVector_function)
+
+BOOST_AUTO_TEST_CASE(SortStandartVector)
+{
+	vector<double> Vector = { -1, 0.1, -2.65, 5 };
+	SortVector(Vector);
+	sampleVector = {-2.65, -1, 0.1, 5}
+	BOOST_CHECK(Vector == sampleVector);
+}
 
 BOOST_AUTO_TEST_SUITE_END()
 
@@ -76,25 +78,9 @@ BOOST_AUTO_TEST_SUITE(TransformVector_function)
 
 	BOOST_AUTO_TEST_CASE(Transform_standart_vector)
 	{
-		vector<double> Vector = {1, 2, 4, 5};
+		vector<double> Vector = {1, 2, -4, 5.5};
 		TransformVector(Vector);
-		vector <double> sampleVector = {5, 10, 20, 25};
-		BOOST_CHECK(Vector == sampleVector);
-	}
-
-	BOOST_AUTO_TEST_CASE(Transform_standart_vector_negative)
-	{
-		vector<double> Vector = {4, -1, -2, 1 };
-		TransformVector(Vector);
-		vector <double> sampleVector = {-8, -2, 2, 4};
-		BOOST_CHECK(Vector == sampleVector);
-	}
-
-	BOOST_AUTO_TEST_CASE(Transform_standart_vector_fractional)
-	{
-		vector<double> Vector = { 0.1, 1.5, 2.5, 3.5 };
-		TransformVector(Vector);
-		vector <double> sampleVector = { 3.5, 52.5, 87.5, 122.5 };
+		vector <double> sampleVector = {-7.5625, -2.75, -1.375, 5.5};
 		BOOST_CHECK(Vector == sampleVector);
 	}
 BOOST_AUTO_TEST_SUITE_END()
