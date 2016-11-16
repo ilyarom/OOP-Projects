@@ -9,16 +9,13 @@ int main()
     CControle controle(bodies, cin, cout);
     while (!cin.eof() && !cin.fail())
     {
+		cout << "Enter Help for get tips";
         cout << "> ";
         if (!controle.HandleCommand())
         {
             cout << "Unknown command\n";
         }
     }
-
-	controle.PrintAllBodies(bodies, cout);
-	controle.FindLargestWeightBody(bodies, cout);
-	controle.FindSmallestWeightBodyInWater(bodies, cout);
 
     return 0;
 }

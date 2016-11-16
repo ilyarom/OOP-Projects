@@ -17,9 +17,9 @@ public:
     CControle(vector<shared_ptr<CBody>> &bodies, istream &input, ostream &output);
     bool HandleCommand();
 
-    void PrintAllBodies(vector<shared_ptr<CBody>> &bodies, ostream &output);
-    void FindLargestWeightBody(vector<shared_ptr<CBody>> &bodies, ostream &output);
-    void FindSmallestWeightBodyInWater(vector<shared_ptr<CBody>> &bodies, ostream &output);
+    bool PrintBodies(istream &args);
+    bool FindLargestWeightBody(istream &args);
+	bool FindSmallestWeightBodyInWater(istream &args);
 
 private:
     bool CreateSphere(istream &rgs);
@@ -27,6 +27,7 @@ private:
     bool CreateCone(istream &args);
     bool CreateCylinder(istream &args);
     double GetWeight(shared_ptr<CBody> &body, const double &WATER_DENSITY, const double &GRAVITY_CONST);
+	bool Help(istream &args);
 
     typedef map<string, function<bool(istream & args)>> ActionMap;
 
@@ -36,3 +37,4 @@ private:
 
     const ActionMap m_actionMap;
 };
+

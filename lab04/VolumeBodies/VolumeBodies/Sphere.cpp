@@ -3,16 +3,36 @@
 
 CSphere::CSphere(double density, double radius)
     : CBody("Sphere", density)
-    , CSolidBody(0, radius)
+    , m_radius(radius)
 {
+}
+
+double CSphere::GetRadius() const
+{
+	if (m_radius > 0)
+	{
+		return m_radius;
+	}
+	return -1;
 }
 
 double CSphere::GetVolume()const
 {
-    return (4 / double(3)) * pow(GetRadius(), 3) * M_PI;
+	if (GetRadius() > 0)
+	{
+		return (4 / double(3)) * pow(GetRadius(), 3) * M_PI;
+	}
+	return -1;
 }
 
 void CSphere::AppendProperties(std::ostream & strm) const
 {
-    strm << "\tradius = " << GetRadius() << std::endl;
+	if (GetRadius() > 0)
+	{
+		strm << "\tradius = " << GetRadius() << std::endl;
+	}
+	else
+	{
+		strm << "Error. Values must be greater than 0";
+	}
 }

@@ -11,7 +11,6 @@ using boost::none;
 
 struct ControleDependencies
 {
-    vector<shared_ptr<CBody>> bodies;
     stringstream input;
     stringstream output;
 };
@@ -21,7 +20,7 @@ struct ControleFixture : ControleDependencies
     CControle controle;
 
     ControleFixture()
-        : controle(bodies, input, output)
+        : controle(input, output)
     {
     }
 
@@ -71,7 +70,7 @@ BOOST_FIXTURE_TEST_SUITE(Controle, ControleFixture)
 		VerifyCommandHandling("Sphere 5 10", "");
 		VerifyCommandHandling("Cylinder 2 5 10", "");
 		VerifyCommandHandling("Parallelepiped 2 5 10 5", "");
-		controle.FindLargestWeightBody(bodies, output);
+		controle.FindLargestWeightBody(output);
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
 	}
 
@@ -86,7 +85,7 @@ BOOST_FIXTURE_TEST_SUITE(Controle, ControleFixture)
 		VerifyCommandHandling("Sphere 5 10", "");
 		VerifyCommandHandling("Cylinder 2 5 10", "");
 		VerifyCommandHandling("Parallelepiped 2 5 10 5", "");
-		controle.FindSmallestWeightBodyInWater(bodies, output);
+		controle.FindSmallestWeightBodyInWater(output);
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
 	}
 
@@ -106,7 +105,7 @@ Cylinder:
 )";
 		VerifyCommandHandling("Sphere 5 10", "");
 		VerifyCommandHandling("Cylinder 2 5 10", "");
-		controle.PrintAllBodies(bodies, output);
+		controle.PrintBodies(output);
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
 	}
 
