@@ -2,7 +2,7 @@
 #include "Vector.h"
 
 using namespace std;
-using boost::transform;
+using namespace boost::transform;
 using namespace std::placeholders;
 using namespace boost::phoenix::placeholders;
 
@@ -16,18 +16,6 @@ double GetMaxElement(std::vector<double> &numbers)
 	return *max_element(numbers.begin(), numbers.end());
 }
 
-bool isMinNull(double minElement)
-{
-	if (minElement == 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
 void SortVector(vector<double> &numbers)
 {
 	sort(numbers.begin(), numbers.end());
@@ -39,7 +27,7 @@ void TransformVector(vector<double> &numbers)
 	{
 		double minElement = GetMinElement(numbers);
 		double maxElement = GetMaxElement(numbers);
-		if (!isMinNull(minElement))
+		if (minElement != 0)
 		{
 			boost::transform(numbers, numbers.begin(), arg1 * maxElement / minElement);
 		}
@@ -48,5 +36,5 @@ void TransformVector(vector<double> &numbers)
 			return;
 		}
 	}
-	SortVector(&numbers);
+	SortVector(numbers);
 }

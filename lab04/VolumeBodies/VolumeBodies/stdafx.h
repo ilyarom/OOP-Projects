@@ -9,16 +9,16 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#define _USE_MATH_DEFINES
+#include <math.h>
+#include <string>
+#include <sstream>
+#include <iomanip>
 
-#include <algorithm>
-
-#include "boost/test/unit_test.hpp"
-
-#define BOOST_TEST_INCLUDED
-
-#pragma warning (disable:4702) // To disable 4702 warning in boost
-#include <boost/test/unit_test.hpp>
-#include <boost/algorithm/string/replace.hpp>
-#define BOOST_TEST_MODULE
+#include <vector>
+#include <memory>
+#include <iostream>
+#include <map>
+#include <functional>
 
 // TODO: reference additional headers your program requires here

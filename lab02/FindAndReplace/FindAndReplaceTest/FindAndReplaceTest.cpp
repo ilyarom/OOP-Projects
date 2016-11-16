@@ -31,9 +31,9 @@ BOOST_AUTO_TEST_CASE(check_empty_replace)
 BOOST_AUTO_TEST_CASE(check_standart_data)
 {
 	string subject = "Subject";
-	string search = "Sub";
-	string replace = "ject";
-	BOOST_CHECK(FindAndReplace(subject, search, replace) == "jectject");
+	string search = "ject";
+	string replace = "sub";
+	BOOST_CHECK(FindAndReplace(subject, search, replace) == "Subsub");
 }
 BOOST_AUTO_TEST_CASE(check_double_replace)
 {
@@ -48,6 +48,16 @@ BOOST_AUTO_TEST_CASE(check_double_search)
 	string search = "subsub";
 	string replace = "sub";
 	BOOST_CHECK(FindAndReplace(subject, search, replace) == "subject");
+}
+
+BOOST_AUTO_TEST_CASE(check_double_search3)
+{
+	BOOST_CHECK(FindAndReplace("mama", "ma", "mama") == "mamamama");
+}
+
+BOOST_AUTO_TEST_CASE(check_double_search4)
+{
+	BOOST_CHECK(FindAndReplace("maa", "ma", "m") == "ma");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

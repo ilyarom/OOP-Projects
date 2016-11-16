@@ -33,17 +33,20 @@ int main()
 				
 		}
 	}
+	int b = 0;
 	for (size_t i = 1; i <= n; ++i)
 	{
 		if (numbers[i])
 		{
-			cout << i << " ";
+			++b;
+		    cout << i << " ";
 			if (i % 10 == 0)
 			{
 				cout << "\n";
 			}
 		}
 	}
+	cout << b << "\n";
 
     return 0;
 }

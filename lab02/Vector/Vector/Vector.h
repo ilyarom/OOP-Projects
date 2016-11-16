@@ -11,14 +11,10 @@
 #include <boost/phoenix.hpp>
 #pragma warning (pop)
 
-using namespace std;
-
 double GetMinElement(std::vector<double> &numbers);
 
 double GetMaxElement(std::vector<double> &numbers);
 
-bool isMinNull(double minElement);
+void TransformVector(std::vector<double> &numbers);
 
-void TransformVector(vector<double> &numbers);
-
-void SortVector(vector<double> &numbers)
+void SortVector(std::vector<double> &numbers)

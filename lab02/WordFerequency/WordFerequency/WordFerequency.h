@@ -7,6 +7,6 @@
 #include <sstream>
 #include <map>
 
-typedef std::map<std::string, std::size_t> WordFerequency;
+using WordFerequency = std::map<std::string, std::size_t>;
 
 WordFerequency CalculateWordArchive(std::istream &input);

@@ -9,11 +9,11 @@ string FindAndReplace(string const& subject, string const& search, string  const
 	string resSubject;
 	resSubject = subject;
 	pos = resSubject.find(search, pos);
-	while (pos != string::npos && search != "")
+	while (pos != string::npos && !search.empty())
 	{
 		resSubject.replace(pos, search.length(), replace);
 		pos = pos + replace.length();
-		pos = resSubject.find(search, pos - 1);
+		pos = resSubject.find(search, pos);
 	}
 	return resSubject;
 }
