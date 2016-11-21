@@ -36,6 +36,7 @@ bool CControle::HandleCommand()
     {
         return !(it -> second(strm));
     }
+	m_output << "Unknown command\n";
     return false;
 }
 
@@ -94,7 +95,7 @@ bool CControle::CreateCone(istream &args)
 		m_output << "Error. Expected: <density> <radius> <height>\n";
         return EXIT_FAILURE;
     }
-	if (radius != -1 || height != -1)
+	if (radius == -1 || height == -1)
 	{
 		m_output << "Error. The values are be greater than 0";
 		return EXIT_FAILURE;
@@ -116,7 +117,7 @@ bool CControle::CreateCylinder(istream &args)
 		m_output << "Error. Expected: <density> <radius> <height>\n";
         return EXIT_FAILURE;
     }
-	if (radius != -1 || height != -1)
+	if (radius == -1 || height == -1)
 	{
 		m_output << "Error. The values are be greater than 0";
 		return EXIT_FAILURE;
@@ -134,15 +135,11 @@ bool CControle::PrintBodies(istream &args)
 		m_output << "Error. Bodies are not exist";
 		return EXIT_FAILURE;
 	}
-	else
+	for (auto &body : m_bodies)
 	{
-		for (auto &body : m_bodies)
-		{
-			m_output << body->ToString();
-			return EXIT_SUCCESS;
-		}
+		m_output << body->ToString();
 	}
-
+	return EXIT_SUCCESS;
 }
 
 bool CControle::FindLargestWeightBody(istream &args)

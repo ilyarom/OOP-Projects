@@ -13,6 +13,7 @@ struct ControleDependencies
 {
     stringstream input;
     stringstream output;
+	vector<shared_ptr<CBody>> bodies;
 };
 
 struct ControleFixture : ControleDependencies
@@ -20,7 +21,7 @@ struct ControleFixture : ControleDependencies
     CControle controle;
 
     ControleFixture()
-        : controle(input, output)
+        : controle(bodies, input, output)
     {
     }
 
@@ -63,12 +64,12 @@ BOOST_FIXTURE_TEST_SUITE(Controle, ControleFixture)
 	{
 		string expectedOutput = R"(Body with max weight is Sphere:
 	density = 5
-	volume = 3141.592654
-	mass = 15707.96327
+	volume = 4188.790205
+	mass = 20943.95102
 	radius = 10
 )";
-		VerifyCommandHandling("Sphere 5 10", "");
 		VerifyCommandHandling("Cylinder 2 5 10", "");
+		VerifyCommandHandling("Sphere 5 10", "");
 		VerifyCommandHandling("Parallelepiped 2 5 10 5", "");
 		controle.FindLargestWeightBody(output);
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
@@ -78,33 +79,34 @@ BOOST_FIXTURE_TEST_SUITE(Controle, ControleFixture)
 	{
 		string expectedOutput = R"(Body with smallest weight in water is Sphere:
 	density = 5
-	volume = 3141.592654
-	mass = 15707.96327
+	volume = 4188.790205
+	mass = 20943.95102
 	radius = 10
 )";
 		VerifyCommandHandling("Sphere 5 10", "");
-		VerifyCommandHandling("Cylinder 2 5 10", "");
+		VerifyCommandHandling("Cylinder 2 -5 10", "");
 		VerifyCommandHandling("Parallelepiped 2 5 10 5", "");
 		controle.FindSmallestWeightBodyInWater(output);
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
 	}
 
-	BOOST_AUTO_TEST_CASE(can_print_all_bodies)
+	BOOST_AUTO_TEST_CASE(can_print_needed_bodies)
 	{
 		string expectedOutput = R"(Sphere:
 	density = 5
-	volume = 3141.592654
-	mass = 15707.96327
+	volume = 4188.790205
+	mass = 20943.95102
 	radius = 10
 Cylinder:
 	density = 2
 	volume = 785.3981634
 	mass = 1570.796327
-	radius = 5
+	base radius = 5
 	height = 10
 )";
 		VerifyCommandHandling("Sphere 5 10", "");
 		VerifyCommandHandling("Cylinder 2 5 10", "");
+		//VerifyCommandHandling("Parallelepiped 2 5 -10", "");
 		controle.PrintBodies(output);
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
 	}

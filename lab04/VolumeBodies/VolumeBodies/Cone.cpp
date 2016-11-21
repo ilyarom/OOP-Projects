@@ -30,11 +30,11 @@ double CCone::GetRadius() const
 
 double CCone::GetVolume() const
 {
-	if ((GetRadius() != -1) && (GetHeight() != -1))
+	if ((GetRadius() > 0) && (GetHeight() > 0))
 	{
 		return M_PI * pow(GetRadius(), 2) * GetHeight() * 1 / double(3);
 	}
-	return 0;
+	return -1;
 }
 
 void CCone::AppendProperties(std::ostream & strm) const

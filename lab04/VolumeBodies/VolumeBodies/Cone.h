@@ -5,9 +5,9 @@ class CCone final
     : public CBody
 {
 public:
-    CCone(double density, double radius, double height);
+    CCone(double density, double baseRadius, double height);
 
-    double GetVolume() const override;
+    virtual double GetVolume() const override;
 	double GetHeight() const;
 	double GetRadius() const;
 
@@ -17,5 +17,6 @@ protected:
 private:
 	double m_height;
 	double m_baseRadius;
+	double m_density;
 };
 

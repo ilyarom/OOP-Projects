@@ -14,6 +14,7 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 
 #include <vector>
 #include <memory>

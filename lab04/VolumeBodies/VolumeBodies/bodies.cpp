@@ -7,14 +7,11 @@ int main()
 {
     vector<shared_ptr<CBody>> bodies;
     CControle controle(bodies, cin, cout);
+	cout << "Enter Help for get tips\n";
     while (!cin.eof() && !cin.fail())
     {
-		cout << "Enter Help for get tips";
         cout << "> ";
-        if (!controle.HandleCommand())
-        {
-            cout << "Unknown command\n";
-        }
+		controle.HandleCommand();
     }
 
     return 0;
