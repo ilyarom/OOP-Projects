@@ -47,12 +47,12 @@ bool CControle::CreateSphere(istream &args)
 
     if (!(args >> density) || !(args >> radius) || args.fail())
     {
-		m_output << "Error. Expected: <density> <radius>";
+		m_output << "Error. Expected: <density> <radius>\n";
         return EXIT_FAILURE;
     }
 	if (radius == -1)
 	{
-		m_output << "Error. The values are be greater than 0";
+		m_output << "Error. The values are be greater than 0\n";
 		return EXIT_FAILURE;
 	}
     shared_ptr<CBody> sphere(new CSphere(density, radius));
@@ -75,7 +75,7 @@ bool CControle::CreateParallelepiped(istream &args)
     }
 	if (width == -1 || height == -1 || depth == -1)
 	{
-		m_output << "Error. The values are be greater than 0";
+		m_output << "Error. The values are be greater than 0\n";
 		return EXIT_FAILURE;
 	}
     shared_ptr<CBody> parallelepiped(new CParallelepiped(density, width, height, depth));
@@ -97,7 +97,7 @@ bool CControle::CreateCone(istream &args)
     }
 	if (radius == -1 || height == -1)
 	{
-		m_output << "Error. The values are be greater than 0";
+		m_output << "Error. The values are be greater than 0\n";
 		return EXIT_FAILURE;
 	}
     shared_ptr<CBody> cone(new CCone(density, radius, height));
@@ -119,7 +119,7 @@ bool CControle::CreateCylinder(istream &args)
     }
 	if (radius == -1 || height == -1)
 	{
-		m_output << "Error. The values are be greater than 0";
+		m_output << "Error. The values are be greater than 0\n";
 		return EXIT_FAILURE;
 	}
     shared_ptr<CBody> cylinder(new CCylinder(density, radius, height));
@@ -132,7 +132,7 @@ bool CControle::PrintBodies(istream &args)
 {
 	if (m_bodies.empty())
 	{
-		m_output << "Error. Bodies are not exist";
+		m_output << "Error. Bodies are not exist\n";
 		return EXIT_FAILURE;
 	}
 	for (auto &body : m_bodies)
@@ -146,48 +146,37 @@ bool CControle::FindLargestWeightBody(istream &args)
 {
     if (m_bodies.empty())
     {
-		m_output << "Error. Bodies are not exist";
+		m_output << "Error. Bodies are not exist\n";
 		return EXIT_FAILURE;
     }
 	else
 	{
-		shared_ptr<CBody> maxWeightBody = m_bodies[0];
-		double maxWeight = m_bodies[0]->GetMass();
-		for (auto &body : m_bodies)
+		auto maxWeight = [](shared_ptr<CBody> const &first, shared_ptr<CBody> const &second)
 		{
-			if (maxWeight < body->GetMass())
-			{
-				maxWeight = body->GetMass();
-				maxWeightBody = body;
-			}
-		}
-		m_output << "Body with max weight is " << maxWeightBody->ToString();
+			return first->GetMass() < second->GetMass();
+		};
+		m_output << "Body with max weight is " << (*max_element(m_bodies.begin(), m_bodies.end(), maxWeight))->ToString();
 		return EXIT_SUCCESS;
 	}
 }
 
 bool CControle::FindSmallestWeightBodyInWater(istream &args)
 {
-    if (m_bodies.empty())
-    {
-		m_output << "Error. Bodies are not exist";
+	if (m_bodies.empty())
+	{
+		m_output << "Error. Bodies are not exist\n";
 		return EXIT_FAILURE;
-    }
+	}
 	else
 	{
-		const double waterDensity = 1000;
-		const double gravitationalAcceleration = 9.8f;
-		shared_ptr<CBody> bodyWithSmallestWeight = m_bodies[0];
-		double smallestWeight = GetWeight(m_bodies[0], waterDensity, gravitationalAcceleration);
-		for (auto &body : m_bodies)
+		auto minWeight = [](shared_ptr<CBody> const &first, shared_ptr<CBody> const &second)
 		{
-			if (smallestWeight > GetWeight(body, waterDensity, gravitationalAcceleration))
-			{
-				smallestWeight = GetWeight(body, waterDensity, gravitationalAcceleration);
-				bodyWithSmallestWeight = body;
-			}
-		}
-		m_output << "Body with smallest weight in water is " << bodyWithSmallestWeight->ToString();
+			const double WATER_DENSITY = 1000;
+			const double GRAVITATIONAL_ACCELERATION = 9.8f;
+			return ((first->GetDensity() - WATER_DENSITY) * GRAVITATIONAL_ACCELERATION * first->GetVolume()) <
+				((second->GetDensity() - WATER_DENSITY) * GRAVITATIONAL_ACCELERATION * second->GetVolume());
+		};
+		m_output << "Body with smallest weight in water is " << (*min_element(m_bodies.begin(), m_bodies.end(), minWeight))->ToString();
 		return EXIT_SUCCESS;
 	}
 }

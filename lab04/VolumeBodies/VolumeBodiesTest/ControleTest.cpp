@@ -75,6 +75,13 @@ BOOST_FIXTURE_TEST_SUITE(Controle, ControleFixture)
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
 	}
 
+	BOOST_AUTO_TEST_CASE(can_not_find_largest_weight_body)
+	{
+		string expectedOutput = "Error. Bodies are not exist\n";
+		controle.FindLargestWeightBody(output);
+		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
+	}
+
 	BOOST_AUTO_TEST_CASE(can_find_smallest_weight_body_in_water)
 	{
 		string expectedOutput = R"(Body with smallest weight in water is Sphere:
@@ -86,6 +93,13 @@ BOOST_FIXTURE_TEST_SUITE(Controle, ControleFixture)
 		VerifyCommandHandling("Sphere 5 10", "");
 		VerifyCommandHandling("Cylinder 2 -5 10", "");
 		VerifyCommandHandling("Parallelepiped 2 5 10 5", "");
+		controle.FindSmallestWeightBodyInWater(output);
+		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
+	}
+
+	BOOST_AUTO_TEST_CASE(can_not_find_smallest_weight_body_in_water)
+	{
+		string expectedOutput = "Error. Bodies are not exist\n";
 		controle.FindSmallestWeightBodyInWater(output);
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
 	}
@@ -106,7 +120,6 @@ Cylinder:
 )";
 		VerifyCommandHandling("Sphere 5 10", "");
 		VerifyCommandHandling("Cylinder 2 5 10", "");
-		//VerifyCommandHandling("Parallelepiped 2 5 -10", "");
 		controle.PrintBodies(output);
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);
 	}
