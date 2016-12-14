@@ -1,7 +1,7 @@
 #pragma once
 #include "Body.h"
 
-class CCylinder final
+class CCylinder
     : public CBody
 {
 public:

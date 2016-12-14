@@ -123,7 +123,7 @@ BOOST_AUTO_TEST_CASE(has_not_a_mass)
 // имеет строковое представление
 BOOST_AUTO_TEST_CASE(can_be_converted_to_string)
 {
-	const auto expectedString = "Error. Values must be greater than 0";
+	const auto expectedString = "";
 	BOOST_CHECK_EQUAL(static_cast<const CBody &>(parallelepiped).ToString(), expectedString);
 }
 BOOST_AUTO_TEST_SUITE_END()

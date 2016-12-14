@@ -31,8 +31,4 @@ void CSphere::AppendProperties(std::ostream & strm) const
 	{
 		strm << "\tradius = " << GetRadius() << std::endl;
 	}
-	else
-	{
-		strm << "Error. Values must be greater than 0";
-	}
 }

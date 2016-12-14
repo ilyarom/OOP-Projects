@@ -1,5 +1,6 @@
 #include "stdafx.h"
-#include "Cylinder.h"
+#include "Cylinder.h" 
+#include <algorithm>
 
 
 CCylinder::CCylinder(double density, double baseRadius, double height)
@@ -7,6 +8,10 @@ CCylinder::CCylinder(double density, double baseRadius, double height)
 	, m_baseRadius(baseRadius)
 	, m_height(height)
 {
+	if (density < 0 || baseRadius < 0 || height < 0)
+	{
+		throw std::invalid_argument("invalid args");
+	}
 }
 
 double CCylinder::GetHeight() const
@@ -43,10 +48,6 @@ void CCylinder::AppendProperties(std::ostream & strm) const
 	{
 		strm << "\tbase radius = " << GetRadius() << std::endl
 			<< "\theight = " << GetHeight() << std::endl;
-	}
-	else
-	{
-		strm << "Error. Values must be greater than 0";
 	}
 }
 

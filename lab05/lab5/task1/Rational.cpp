@@ -117,9 +117,9 @@ CRational CRational::operator+=(const CRational &second)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 6. Реализовать оператор -=
 //////////////////////////////////////////////////////////////////////////
-CRational CRational::operator-=(const CRational &rValue)
+CRational CRational::operator-=(const CRational &second)
 {
-	return *this += (-rValue);
+	return *this += (second);
 }
 
 
@@ -129,12 +129,8 @@ CRational CRational::operator-=(const CRational &rValue)
 //////////////////////////////////////////////////////////////////////////
 CRational const operator*(const CRational &first, const CRational &second)
 {
-	int numerator = first.GetNumerator() * second.GetNumerator();
-	int denominator = first.GetDenominator() * second.GetDenominator();
-	CRational result(numerator, denominator);
-	return result;
+	return CRational(first.GetNumerator() * second.GetNumerator(), first.GetDenominator() * second.GetDenominator());
 }
-
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -142,10 +138,7 @@ CRational const operator*(const CRational &first, const CRational &second)
 //////////////////////////////////////////////////////////////////////////
 CRational const operator/(const CRational &first, const CRational &second)
 {
-	int numerator = first.GetNumerator() * second.GetDenominator();
-	int denominator = second.GetNumerator() * first.GetDenominator();
-	CRational result(numerator, denominator);
-	return result;
+	return CRational(first.GetNumerator() * second.GetDenominator(), first.GetDenominator() * second.GetNumerator());
 }
 
 
@@ -153,9 +146,9 @@ CRational const operator/(const CRational &first, const CRational &second)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 9. Реализовать оператор *=
 //////////////////////////////////////////////////////////////////////////
-CRational CRational::operator*=(const CRational &rValue)
+CRational CRational::operator*=(const CRational &second)
 {
-	*this = *this * rValue;
+	*this = *this * second;
 	return *this;
 }
 
@@ -164,9 +157,9 @@ CRational CRational::operator*=(const CRational &rValue)
 //////////////////////////////////////////////////////////////////////////
 // TODO: 10. Реализовать оператор /=
 //////////////////////////////////////////////////////////////////////////
-CRational CRational::operator/=(const CRational &rValue)
+CRational CRational::operator/=(const CRational &second)
 {
-	return *this *= (1 / rValue);
+	return *this *= (1 / second);
 }
 
 

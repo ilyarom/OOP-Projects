@@ -1,12 +1,11 @@
 #pragma once
 #include "Body.h"
 
-class CCone final
+class CCone
     : public CBody
 {
 public:
     CCone(double density, double baseRadius, double height);
-
     virtual double GetVolume() const override;
 	double GetHeight() const;
 	double GetRadius() const;
@@ -19,4 +18,3 @@ private:
 	double m_baseRadius;
 	double m_density;
 };
-

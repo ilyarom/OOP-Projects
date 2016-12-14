@@ -54,9 +54,5 @@ void CParallelepiped::AppendProperties(std::ostream & strm) const
 			<< "\theight = " << GetHeight() << std::endl
 			<< "\tdepth = " << GetDepth() << std::endl;
 	}
-	else
-	{
-		strm << "Error. Values must be greater than 0";
-	}
 }
 

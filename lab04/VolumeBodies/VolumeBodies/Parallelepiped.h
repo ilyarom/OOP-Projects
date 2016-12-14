@@ -1,7 +1,7 @@
 #pragma once
 #include "Body.h"
 
-class CParallelepiped final
+class CParallelepiped
     : public CBody
 {
 public:

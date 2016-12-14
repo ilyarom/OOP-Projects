@@ -77,9 +77,6 @@
     <ClCompile Include="CylinderTest.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="..\VolumeBodies\SolidBody.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="bodies_test.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>

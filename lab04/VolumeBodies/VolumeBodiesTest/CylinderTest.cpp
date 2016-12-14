@@ -78,12 +78,12 @@ BOOST_FIXTURE_TEST_SUITE(ErrorCylinder, ErrorCylinder_)
 // является объемным телом
 BOOST_AUTO_TEST_CASE(is_a_body)
 {
-	BOOST_CHECK(static_cast<const CBody*>(&cylinder));
+	BOOST_REQUIRE_THROW(static_cast<const CBody*>(&cylinder), std::invalid_argument);
 }
 // имеет радиус
 BOOST_AUTO_TEST_CASE(has_not_a_radius)
 {
-	BOOST_CHECK_EQUAL(cylinder.GetRadius(), -1);
+	BOOST_REQUIRE_THROW(cylinder.GetRadius(), std::invalid_argument);
 }
 // имеет высоту
 BOOST_AUTO_TEST_CASE(has_a_height)
@@ -108,7 +108,7 @@ BOOST_AUTO_TEST_CASE(has_not_a_mass)
 // имеет строковое представление
 BOOST_AUTO_TEST_CASE(can_be_converted_to_string)
 {
-	const auto expectedString = "Error. Values must be greater than 0";
+	const auto expectedString = "";
 	BOOST_CHECK_EQUAL(static_cast<const CBody &>(cylinder).ToString(), expectedString);
 }
 BOOST_AUTO_TEST_SUITE_END()

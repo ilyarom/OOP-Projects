@@ -91,7 +91,6 @@ BOOST_FIXTURE_TEST_SUITE(Controle, ControleFixture)
 	radius = 10
 )";
 		VerifyCommandHandling("Sphere 5 10", "");
-		VerifyCommandHandling("Cylinder 2 -5 10", "");
 		VerifyCommandHandling("Parallelepiped 2 5 10 5", "");
 		controle.FindSmallestWeightBodyInWater(output);
 		BOOST_CHECK_EQUAL(output.str(), expectedOutput);

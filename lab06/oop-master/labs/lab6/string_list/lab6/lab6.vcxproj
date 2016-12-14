@@ -19,11 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EBCEC9DB-19E8-4CE1-9F00-DA5874485F1D}</ProjectGuid>
+    <ProjectGuid>{2A1C6369-4537-49D3-B139-BFB384EE44EA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>VolumeBodiesTest</RootNamespace>
+    <RootNamespace>lab6</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>bodies_tests</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -94,9 +93,6 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PostBuildEvent>
-      <Command>"$(TargetPath)" --log_level=test_suite</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -110,9 +106,6 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PostBuildEvent>
-      <Command>"$(TargetPath)" --log_level=test_suite</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -130,9 +123,6 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PostBuildEvent>
-      <Command>"$(TargetPath)" --log_level=test_suite</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -150,43 +140,24 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <PostBuildEvent>
-      <Command>"$(TargetPath)" --log_level=test_suite</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\VolumeBodies\Body.h" />
-    <ClInclude Include="..\VolumeBodies\Cone.h" />
-    <ClInclude Include="..\VolumeBodies\Controle.h" />
-    <ClInclude Include="..\VolumeBodies\Cylinder.h" />
-    <ClInclude Include="..\VolumeBodies\Parallelepiped.h" />
-    <ClInclude Include="..\VolumeBodies\SolidBody.h" />
-    <ClInclude Include="..\VolumeBodies\Sphere.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringList.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\VolumeBodies\Body.cpp" />
-    <ClCompile Include="..\VolumeBodies\Cone.cpp" />
-    <ClCompile Include="..\VolumeBodies\Controle.cpp" />
-    <ClCompile Include="..\VolumeBodies\Cylinder.cpp" />
-    <ClCompile Include="..\VolumeBodies\Parallelepiped.cpp" />
-    <ClCompile Include="..\VolumeBodies\Sphere.cpp" />
-    <ClCompile Include="ConeTest.cpp" />
-    <ClCompile Include="ControleTest.cpp" />
-    <ClCompile Include="CylinderTest.cpp" />
-    <ClCompile Include="ParallelepipedTest.cpp" />
-    <ClCompile Include="SphereTest.cpp" />
+    <ClCompile Include="lab6.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="bodies_test.cpp" />
+    <ClCompile Include="StringList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

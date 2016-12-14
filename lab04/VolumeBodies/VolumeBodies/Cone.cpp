@@ -44,8 +44,4 @@ void CCone::AppendProperties(std::ostream & strm) const
 		strm << "\tbase radius = " << GetRadius() << std::endl
 			<< "\theight = " << GetHeight() << std::endl;
 	}
-	else
-	{
-		strm << "Error. Values must be greater than 0";
-	}
 }
