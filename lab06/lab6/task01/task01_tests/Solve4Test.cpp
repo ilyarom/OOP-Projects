@@ -91,7 +91,7 @@ BOOST_AUTO_TEST_CASE(can_not_solve_equation_if_a_equal_an_zero)
 
 BOOST_AUTO_TEST_CASE(can_not_solve_equation_if_real_roots_do_not_exist)
 {
-	BOOST_REQUIRE_THROW(Solve4(5, 4, 3, 2, 1), invalid_argument);
+	BOOST_REQUIRE_THROW(Solve4(5, 4, 3, 2, 1), runtime_error);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

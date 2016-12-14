@@ -116,7 +116,7 @@ EquationRoots4 Solve4(double a, double b, double c, double d, double e)
 
 	if (equationRoots.numRoots == 0) // pow((3 * c - pow(b, 2)) / double(9), 3) + ((27 * d) + b * ((9 * c) - (2 * pow(b, 2)))) < 0
 	{
-		throw invalid_argument("The equation have not real roots");
+		throw runtime_error("The equation have not real roots");
 	}
 
 
