@@ -10,7 +10,23 @@ size_t CStringList::GetSize() const
 	return m_size;
 }
 
-void CStringList::AppendBack(const std::string & data)
+void CStringList::Clear()
+{
+	while (m_lastNode)
+	{
+		m_lastNode->next = nullptr;
+		m_lastNode = m_lastNode->prev;
+		--m_size;
+	}
+	m_firstNode = nullptr;
+}
+
+CStringList::~CStringList()
+{
+	Clear();
+}
+
+void CStringList::AppendBack(const string & data)
 {
 	auto newNode = make_unique<Node>(data, m_lastNode, nullptr);
 	Node *newLastNode = newNode.get();
@@ -26,7 +42,7 @@ void CStringList::AppendBack(const std::string & data)
 	++m_size;
 }
 
-void CStringList::AppendFront(const std::string & data)
+void CStringList::AppendFront(const string & data)
 {
 	auto newNode = make_unique<Node>(data, nullptr, nullptr);
 	if (m_firstNode)
@@ -48,7 +64,7 @@ bool CStringList::isEmpty() const
 	return (m_firstNode == nullptr);
 }
 
-CStringList::CIterator CStringList::Insert(const std::string & element, CIterator & iter)
+CStringList::CIterator CStringList::Insert(const string & element, CIterator & iter)
 {
 	if (iter.m_node == m_firstNode.get())
 	{
@@ -62,7 +78,7 @@ CStringList::CIterator CStringList::Insert(const std::string & element, CIterato
 	{
 		if (!iter.m_node)
 		{
-			throw std::invalid_argument("Invalid iterator");
+			throw invalid_argument("Invalid iterator");
 		}
 		auto node = make_unique<Node>(element, iter->prev, move(iter->prev->next));
 		iter->prev = move(node.get());
@@ -148,55 +164,44 @@ CStringList::CIterator CStringList::Delete(CIterator & iter)
 	return iter;
 }
 
-std::string & CStringList::GetBackElement()
+string & CStringList::GetBackElement()
 {
 	//assert(m_lastNode);
-	if (!m_lastNode)
+	if (isEmpty())
 	{
 		throw out_of_range("List is empty");
 	}
 	return m_lastNode->data;
 }
 
-std::string const & CStringList::GetBackElement() const
+string const & CStringList::GetBackElement() const
 {
 	//assert(m_lastNode);
-	if (!m_lastNode)
+	if (isEmpty())
 	{
 		throw out_of_range("List is empty");
 	}
 	return m_lastNode->data;
 }
 
-std::string & CStringList::GetFrontElement()
+string & CStringList::GetFrontElement()
 {
 	//assert(m_firstNode);
-	if (!m_firstNode)
+	if (isEmpty())
 	{
 		throw out_of_range("List is empty");
 	}
 	return m_firstNode->data;
 }
 
-std::string const& CStringList::GetFrontElement()const
+string const& CStringList::GetFrontElement()const
 {
 	//assert(m_firstNode);
-	if (!m_firstNode)
+	if (isEmpty())
 	{
 		throw out_of_range("List is empty");
 	}
 	return m_firstNode->data;
-}
-
-void CStringList::Clear()
-{
-	while (m_lastNode)
-	{
-		m_lastNode->next = nullptr;
-		m_lastNode = m_lastNode->prev;
-		--m_size;
-	}
-	m_firstNode = nullptr;
 }
 
 CStringList::CIterator::CIterator(Node * node, bool isReverse)
@@ -205,7 +210,7 @@ CStringList::CIterator::CIterator(Node * node, bool isReverse)
 {
 }
 
-std::string & CStringList::CIterator::operator*() const
+string & CStringList::CIterator::operator*() const
 {
 	return m_node->data;
 }
