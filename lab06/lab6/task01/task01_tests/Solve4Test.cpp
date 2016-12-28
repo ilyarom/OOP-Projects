@@ -11,15 +11,19 @@ void CheckEqualEquations(EquationRoots4 sampleEquation, EquationRoots4 resultRoo
 	}
 }
 
-BOOST_AUTO_TEST_SUITE(check_function_GetNumOfRoots)
+BOOST_AUTO_TEST_SUITE(check_function_Solve2)
 
 BOOST_AUTO_TEST_CASE(can_find_appropriate_descriminant)
 {
 	double roots[4];
-	BOOST_CHECK_EQUAL(GetNumOfRoots(0, 1, -1, 1, roots), 0);
-	BOOST_CHECK_EQUAL(GetNumOfRoots(1, 1, -2, 1, roots), 1);
+	size_t resolvent;
+	Solve2(0, 1, -1, 1, roots, resolvent);
+	BOOST_CHECK_EQUAL(resolvent, 0);
+	Solve2(1, 1, -2, 1, roots, resolvent);
+	BOOST_CHECK_EQUAL(resolvent, 1);
 	BOOST_CHECK_EQUAL(roots[1], 1);
-	BOOST_CHECK_EQUAL(GetNumOfRoots(2, 4, -5, 1, roots), 2);
+	Solve2(2, 4, -5, 1, roots, resolvent);
+	BOOST_CHECK_EQUAL(resolvent, 2);
 	BOOST_CHECK_EQUAL(roots[2], 0.25);
 	BOOST_CHECK_EQUAL(roots[3], 1);
 

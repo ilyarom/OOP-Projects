@@ -2,11 +2,15 @@
 #include <iostream>
 #include <Math.h>
 #include <amp.h>
+#include <algorithm>
+#include <vector>
 
 struct EquationRoots4
 {
 	size_t numRoots;
 	double roots[4];
+	size_t resolvent1;
+	size_t resolvent2;
 };
 
 struct InputCoefficient
@@ -26,7 +30,16 @@ struct CubicCoefficient
 	size_t numRoots;
 };
 
-size_t GetNumOfRoots(const size_t &number, double a, double b, double c, double* roots);
+void Solve2(const size_t &number, double a, double b, double c, double* roots, size_t &resolvent);
 void Solve3(double b, double c, double d, CubicCoefficient &cubicCoefficients);
 EquationRoots4 Solve4(double a, double b, double c, double d, double e);
 void ToString(const EquationRoots4 &roots);
+
+/*class CEquationRoot4Calculator
+{
+public:
+
+private:
+	CubicCoefficient m_cubeCoefficient;
+	InputCoefficient m_inputCoefficient;
+}*/
