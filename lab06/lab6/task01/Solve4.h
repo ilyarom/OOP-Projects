@@ -30,16 +30,24 @@ struct CubicCoefficient
 	size_t numRoots;
 };
 
-void Solve2(const size_t &number, double a, double b, double c, double* roots, size_t &resolvent);
-void Solve3(double b, double c, double d, CubicCoefficient &cubicCoefficients);
-EquationRoots4 Solve4(double a, double b, double c, double d, double e);
+
+
 void ToString(const EquationRoots4 &roots);
 
-/*class CEquationRoot4Calculator
+class CEquationRoots4
 {
 public:
+	CEquationRoots4();
+	size_t numRoots;
+	double roots[4];
+	size_t resolvent1;
+	size_t resolvent2;
+	void Solve2(const size_t &number, double a, double b, double c, double *roots, size_t &resolvent);
+	void Solve3(double b, double c, double d, CubicCoefficient &cubicCoefficients);
+	InputCoefficient Assignation(double a, double b, double c, double d, double e);
+	CEquationRoots4 Solve4(double a, double b, double c, double d, double e);
 
 private:
-	CubicCoefficient m_cubeCoefficient;
-	InputCoefficient m_inputCoefficient;
-}*/
+	CubicCoefficient m_cubicCoefficients;
+	InputCoefficient m_inputCoefficients;
+};

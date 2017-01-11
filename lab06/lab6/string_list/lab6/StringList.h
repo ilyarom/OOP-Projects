@@ -4,6 +4,7 @@
 
 class CStringList
 {
+public:
 	struct Node
 	{
 		Node(const std::string & data, Node * prev, std::unique_ptr<Node> && next)
@@ -14,8 +15,8 @@ class CStringList
 		Node *prev;
 		std::unique_ptr<Node> next;
 	};
-public:
 	CStringList() = default;
+	CStringList(CStringList& list);
 	~CStringList();
 	size_t GetSize()const;
 	void AppendBack(const std::string& data);

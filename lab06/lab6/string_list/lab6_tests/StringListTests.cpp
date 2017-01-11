@@ -8,6 +8,7 @@ struct EmptyStringList
 	CStringList list;
 };
 
+
 BOOST_FIXTURE_TEST_SUITE(String_list, EmptyStringList)
 	BOOST_AUTO_TEST_CASE(empty_list)
 	{

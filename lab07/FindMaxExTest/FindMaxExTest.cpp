@@ -4,18 +4,26 @@
 #include "stdafx.h"
 #include "Athlete.h"
 #include "../FindMaxEx/FindMaxEx.h"
-template <class X, class Y>
-class CTest 
+
+/*class CTest 
 {
 	public:
-		CTest::CTest(X x, Y y)
-			: m_x(x), m_y(y) {}
-		CTest operator =(CTest const&a)
+		CTest() = default;
+		CTest(const CTest &value)
 		{
-			throw std::exception("assign");
+
+		}
+		~CTest()
+		{
+
+		}
+		CTest& operator =(CTest const &a)
+		{
+			//throw std::exception("assign");
 			try
 			{
-				y = a.y;
+				m_x = a.m_x;
+				return *this;
 			}
 			catch (...)
 			{
@@ -33,30 +41,12 @@ class CTest
 				throw;
 			}
 		}
-		X x;
-		Y y;
 	private:
-		X m_x = 4;
-		Y m_y = 3;
+		double m_x;
+		double m_y;
 		CTest * m_item;
-};
+};*/
 
-
-/*BOOST_AUTO_TEST_SUITE(Test)
-BOOST_AUTO_TEST_CASE(super_test)
-{
-	CTest:: = 5;
-	int f = 3;
-	BOOST_REQUIRE_NO_THROW();
-}*/
-struct EmptyTest
-{
-	CTest test;
-};
-
-BOOST_FIXTURE_TEST_SUITE(String_list, EmptyStringList)
-BOOST_FIXTURE_TEST_END()
-BOOST_AUTO_TEST_SUITE_END()
 
 CAthlete Athlete1("Lionel Messi", 169, 66);
 CAthlete Athlete2("Cristiano Ronaldo", 185, 85);
@@ -72,6 +62,13 @@ double maxHeight = 185;
 double maxWeight = 85;
 
 BOOST_AUTO_TEST_SUITE(FindMaxEx_)
+
+/*BOOST_AUTO_TEST_CASE(can_process_test)
+{
+	CTest test1;
+	CTest test2;
+	BOOST_CHECK(test1 = test2);
+}*/
 
 BOOST_AUTO_TEST_CASE(can_process_empty_vector)
 {

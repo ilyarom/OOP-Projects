@@ -5,6 +5,15 @@
 using namespace std;
 
 
+CStringList::CStringList(CStringList & list)
+{
+	CStringList tempList;
+	for (auto const& elem : list)
+	{
+		tempList.AppendBack(elem);
+	}
+}
+
 size_t CStringList::GetSize() const
 {
 	return m_size;

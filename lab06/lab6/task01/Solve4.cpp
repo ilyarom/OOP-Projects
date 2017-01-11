@@ -10,7 +10,7 @@ using namespace std;
 
 // 
 
-void Solve2(const size_t &number, double a, double b, double c, vector <double> &roots, size_t &resolvent)
+void CEquationRoots4::Solve2(const size_t &number, double a, double b, double c, double *roots, size_t &resolvent)
 {
 	double descriminant = pow(b, 2) - 4 * a * c;
 
@@ -69,7 +69,7 @@ void CalculationStandartRoots(CubicCoefficient &cubicCoefficients, double r, dou
 	cubicCoefficients.roots[1] = cbrt(r) - b;
 }
 
-void Solve3(double b, double c, double d, CubicCoefficient &cubicCoefficients)
+void CEquationRoots4::Solve3(double b, double c, double d, CubicCoefficient &cubicCoefficients)
 {
 	double q;
 	double r;
@@ -97,7 +97,7 @@ void Solve3(double b, double c, double d, CubicCoefficient &cubicCoefficients)
 	
 }
 
-InputCoefficient Assignation(double a, double b, double c, double d, double e)
+InputCoefficient CEquationRoots4::Assignation(double a, double b, double c, double d, double e)
 {
 	InputCoefficient inputCoefficients;
 	inputCoefficients.b = b / a;
@@ -116,27 +116,27 @@ CubicCoefficient IntrodutionCoefficientsSolve4(InputCoefficient inputCoefficient
 	return cubicCoefficients;
 }
 
-EquationRoots4 Solve4(double a, double b, double c, double d, double e)
+CEquationRoots4 CEquationRoots4::Solve4(double a, double b, double c, double d, double e)
 {
 	if (a == 0) { throw invalid_argument("Argument 'a' must be not a zero"); };
 
 	
 
 	// implement func
-	InputCoefficient inputCoefficients = Assignation(a, b, c, d, e);
+	m_inputCoefficients = Assignation(a, b, c, d, e);
 
 	// impl func
-	CubicCoefficient cubicCoefficients = IntrodutionCoefficientsSolve4(inputCoefficients);
+	m_cubicCoefficients = IntrodutionCoefficientsSolve4(m_inputCoefficients);
 
-	Solve3(-cubicCoefficients.p / 2, -cubicCoefficients.r,
-		(cubicCoefficients.r * cubicCoefficients.p - pow(cubicCoefficients.q, 2) / 4) / 2, cubicCoefficients);
+	Solve3(-m_cubicCoefficients.p / 2, -m_cubicCoefficients.r,
+		(m_cubicCoefficients.r * m_cubicCoefficients.p - pow(m_cubicCoefficients.q, 2) / 4) / 2, m_cubicCoefficients);
 
-	vector <double> roots[4];
-	EquationRoots4 equationRoots;
+	double roots[4];
+	CEquationRoots4 equationRoots;
 
 	// rename
-	Solve2(0, 1, -sqrt(2 * cubicCoefficients.roots[cubicCoefficients.numRoots - 1] - cubicCoefficients.p), (cubicCoefficients.q / (2 * sqrt(2 * cubicCoefficients.roots[cubicCoefficients.numRoots - 1] - cubicCoefficients.p))) + cubicCoefficients.roots[cubicCoefficients.numRoots - 1], roots, equationRoots.resolvent1);
-	Solve2(equationRoots.resolvent1, 1, sqrt(2 * cubicCoefficients.roots[cubicCoefficients.numRoots - 1] - cubicCoefficients.p), -(cubicCoefficients.q / (2 * sqrt(2 * cubicCoefficients.roots[cubicCoefficients.numRoots - 1] - cubicCoefficients.p))) + cubicCoefficients.roots[cubicCoefficients.numRoots - 1], roots, equationRoots.resolvent2);
+	Solve2(0, 1, -sqrt(2 * m_cubicCoefficients.roots[m_cubicCoefficients.numRoots - 1] - m_cubicCoefficients.p), (m_cubicCoefficients.q / (2 * sqrt(2 * m_cubicCoefficients.roots[m_cubicCoefficients.numRoots - 1] - m_cubicCoefficients.p))) + m_cubicCoefficients.roots[m_cubicCoefficients.numRoots - 1], roots, equationRoots.resolvent1);
+	Solve2(equationRoots.resolvent1, 1, sqrt(2 * m_cubicCoefficients.roots[m_cubicCoefficients.numRoots - 1] - m_cubicCoefficients.p), -(m_cubicCoefficients.q / (2 * sqrt(2 * m_cubicCoefficients.roots[m_cubicCoefficients.numRoots - 1] - m_cubicCoefficients.p))) + m_cubicCoefficients.roots[m_cubicCoefficients.numRoots - 1], roots, equationRoots.resolvent2);
 	equationRoots.numRoots = equationRoots.resolvent1 + equationRoots.resolvent2;
 
 	if (equationRoots.numRoots == 0) // pow((3 * c - pow(b, 2)) / double(9), 3) + ((27 * d) + b * ((9 * c) - (2 * pow(b, 2)))) < 0
@@ -157,7 +157,7 @@ EquationRoots4 Solve4(double a, double b, double c, double d, double e)
 	//transform(begin(equationRoots.roots), end(equationRoots.roots), );
 	for (size_t i = 0; i != equationRoots.numRoots; ++i)
 	{
-		equationRoots.roots[i] = roots[i] - inputCoefficients.b / 4;
+		equationRoots.roots[i] = roots[i] - m_inputCoefficients.b / 4;
 	}
 
 	return equationRoots;
