@@ -48,15 +48,15 @@
 };*/
 
 
-CAthlete Athlete1("Lionel Messi", 169, 66);
-CAthlete Athlete2("Cristiano Ronaldo", 185, 85);
-CAthlete Athlete3("Gareth Bale", 183, 74);
-CAthlete Athlete4("Antoine Griezmann", 176, 67);
+const CAthlete Athlete1("Lionel Messi", 169, 66);
+const CAthlete Athlete2("Cristiano Ronaldo", 185, 85);
+const CAthlete Athlete3("Gareth Bale", 183, 74);
+const CAthlete Athlete4("Antoine Griezmann", 176, 67);
 
 std::vector<CAthlete> emptyVec;
 std::vector<CAthlete> players = { Athlete1, Athlete2, Athlete3, Athlete4 };
 
-CAthlete maxParamAthlete;
+CAthlete maxParamAthlete = {"", 0, 0};
 
 double maxHeight = 185;
 double maxWeight = 85;

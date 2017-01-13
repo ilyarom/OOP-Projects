@@ -1,10 +1,6 @@
 #include "stdafx.h"
 #include "Athlete.h"
 
-CAthlete::CAthlete()
-{
-}
-
 CAthlete::CAthlete(std::string name, double height, double weight)
 	: name(name)
 	, height(height)

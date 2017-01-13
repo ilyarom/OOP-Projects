@@ -12,6 +12,9 @@ CStringList::CStringList(CStringList & list)
 	{
 		tempList.AppendBack(elem);
 	}
+	std::swap((*this).m_firstNode, tempList.m_firstNode);
+	std::swap((*this).m_lastNode, tempList.m_lastNode);
+	(*this).m_size = tempList.m_size;
 }
 
 size_t CStringList::GetSize() const
