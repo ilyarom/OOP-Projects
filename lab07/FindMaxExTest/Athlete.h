@@ -13,4 +13,4 @@ struct CAthlete
 
 bool isLessWeight(CAthlete const& left, CAthlete const& right);
 bool isLessHeight(CAthlete const& left, CAthlete const& right);
-bool isLessName(CAthlete const& left, CAthlete const& right);
+//bool isLessName(CAthlete const& left, CAthlete const& right);

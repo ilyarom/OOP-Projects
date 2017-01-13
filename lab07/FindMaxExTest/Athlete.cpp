@@ -8,10 +8,10 @@ CAthlete::CAthlete(std::string name, double height, double weight)
 {
 }
 
-bool isLessName(CAthlete const& left, CAthlete const& right)
+/*bool isLessName(CAthlete const& left, CAthlete const& right)
 {
 	return left.name < right.name;
-}
+}*/
 
 bool isLessHeight(CAthlete const& left, CAthlete const& right)
 {
