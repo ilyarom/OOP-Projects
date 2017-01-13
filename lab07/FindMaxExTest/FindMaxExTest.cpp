@@ -5,47 +5,6 @@
 #include "Athlete.h"
 #include "../FindMaxEx/FindMaxEx.h"
 
-/*class CTest 
-{
-	public:
-		CTest() = default;
-		CTest(const CTest &value)
-		{
-
-		}
-		~CTest()
-		{
-
-		}
-		CTest& operator =(CTest const &a)
-		{
-			//throw std::exception("assign");
-			try
-			{
-				m_x = a.m_x;
-				return *this;
-			}
-			catch (...)
-			{
-				throw;
-			}
-		}
-		CTest & operator [](size_t index)
-		{
-			try
-			{
-				return m_item[index];
-			}
-			catch (...)
-			{
-				throw;
-			}
-		}
-	private:
-		double m_x;
-		double m_y;
-		CTest * m_item;
-};*/
 
 
 const CAthlete Athlete1("Lionel Messi", 169, 66);
@@ -63,12 +22,6 @@ double maxWeight = 85;
 
 BOOST_AUTO_TEST_SUITE(FindMaxEx_)
 
-/*BOOST_AUTO_TEST_CASE(can_process_test)
-{
-	CTest test1;
-	CTest test2;
-	BOOST_CHECK(test1 = test2);
-}*/
 
 BOOST_AUTO_TEST_CASE(can_process_empty_vector)
 {
