@@ -17,6 +17,16 @@ CStringList::CStringList(CStringList & list)
 	(*this).m_size = tempList.m_size;
 }
 
+CStringList::CStringList(CStringList && list)
+{
+	(*this).m_firstNode = move(list.m_firstNode);
+	(*this).m_lastNode =  move(list.m_lastNode);
+	(*this).m_size = list.m_size;
+	list.m_firstNode = nullptr;
+	list.m_lastNode = nullptr;
+	list.m_size = 0;
+}
+
 size_t CStringList::GetSize() const
 {
 	return m_size;

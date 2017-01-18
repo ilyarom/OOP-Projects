@@ -3,13 +3,16 @@
 template<typename T>
 class CMyStack
 {
-		Node(const T &value, const std::shared_ptr<Node> &next = nullptr)
-			: value(value)
+	struct Node
+	{
+		Node(const T &data, const std::shared_ptr<Node> &next)
+			: data(data)
 			, next(next)
 		{
 		};
-		T value;
+		T data;
 		std::shared_ptr<Node> next;
+	};
 
 public:
 	CMyStack()
@@ -21,13 +24,13 @@ public:
 		if (std::addressof(other) != this)
 		{
 			std::shared_ptr<Node> tmp = other.m_top;
-			std::shared_ptr<Node> currentElement = std::make_shared<Node>(tmp->value);
+			std::shared_ptr<Node> currentElement = std::make_shared<Node>(tmp->data);
 			m_top = currentElement;
 
 			tmp = tmp->next;
 			while (tmp != nullptr)
 			{
-				currentElement->next = std::make_shared<Node>(tmp->value);
+				currentElement->next = std::make_shared<Node>(tmp->data);
 				currentElement = currentElement->next;
 
 				tmp = tmp->next;
@@ -61,7 +64,7 @@ public:
 		{
 			throw std::logic_error("Stack is empty");
 		}
-		return m_top->value;
+		return m_top->data;
 	};
 	bool IsEmpty() const
 	{
@@ -80,13 +83,13 @@ public:
 		if (std::addressof(right) != this)
 		{
 			std::shared_ptr<Node> tmp = right.m_top;
-			std::shared_ptr<Node> currentElement = std::make_shared<Node>(tmp->value);
+			std::shared_ptr<Node> currentElement = std::make_shared<Node>(tmp->data);
 			m_top = currentElement;
 
 			tmp = tmp->next;
 			while (tmp != nullptr)
 			{
-				currentElement->next = std::make_shared<Node>(tmp->value);
+				currentElement->next = std::make_shared<Node>(tmp->data);
 				currentElement = currentElement->next;
 
 				tmp = tmp->next;

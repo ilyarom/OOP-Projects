@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{97097911-130E-4B9A-823A-0E618F36915A}</ProjectGuid>
+    <ProjectGuid>{03799F83-31B9-4D27-A73D-7EA067363E68}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>CMyStack</RootNamespace>
+    <RootNamespace>BubbleSort</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -145,13 +145,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CMyStack.h" />
+    <ClInclude Include="BubbleSort.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CMyStack.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="BubbleSort.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

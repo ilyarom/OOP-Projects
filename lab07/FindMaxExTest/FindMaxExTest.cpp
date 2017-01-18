@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_CASE(can_process_empty_vector)
 	/*BOOST_CHECK(!FindMaxEx(emptyVec, maxParamAthlete, isLessName));*/
 }
 
-BOOST_AUTO_TEST_CASE(check_filled_vector_an_empty)
+BOOST_AUTO_TEST_CASE(can_check_non_empty_vector)
 {
 	BOOST_CHECK(!players.empty());
 }

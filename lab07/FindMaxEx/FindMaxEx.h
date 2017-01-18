@@ -1,19 +1,20 @@
 #pragma once
 
 template <class T, class Less>
-bool FindMaxEx(std::vector<T> const& arr, T & maxValue, Less const& less)
+bool FindMaxEx(std::vector<T> const& arr, T & maxValue, Less const& less = bool operator < (T, T))
 {
 	if (arr.empty())
 	{
 		return false;
 	}
-	maxValue = arr[0];
+	const T *max = &arr[0];
 	for (T const& element : arr)
 	{
-		if (less(maxValue, element))
+		if (less(*max, element))
 		{
-			maxValue = element;
+			max = &element;
 		}
 	}
+	maxValue = *max;
 	return true;
 }

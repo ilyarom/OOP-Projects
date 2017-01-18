@@ -17,6 +17,7 @@ public:
 	};
 	CStringList() = default;
 	CStringList(CStringList& list);
+	CStringList(CStringList&& list);
 	~CStringList();
 	size_t GetSize()const;
 	void AppendBack(const std::string& data);

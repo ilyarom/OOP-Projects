@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{97097911-130E-4B9A-823A-0E618F36915A}</ProjectGuid>
+    <ProjectGuid>{2B9943D5-7259-49A8-833E-2C8377FD1955}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>CMyStack</RootNamespace>
+    <RootNamespace>Classes</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -145,12 +145,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CMyStack.h" />
+    <ClInclude Include="Classes.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CMyStack.cpp" />
+    <ClCompile Include="Classes.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
