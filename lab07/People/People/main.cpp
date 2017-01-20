@@ -6,7 +6,7 @@
 class A
 {
 public:
-	virtual ~A()
+	~A()
 	{
 		std::cout << "destructor A" << std::endl;
 	}
@@ -28,8 +28,10 @@ void DoSomethingWithPerson(IPerson & person)
 
 int main()
 {
-	CStudent s("ivan", "petrov", "sergeevich", "addr", "university", 4);
-	A * p = new B;
+	//CStudent s("ivan", "petrov", "sergeevich", "addr", "university", 4);
+	/*A * p = new B;
+	delete p;*/
+/*	IPerson * p = new CStudent("ivan", "petrov", "sergeevich", "addr", "university", 4);
 	delete p;
-	return 0;
+	return 0;*/
 }
