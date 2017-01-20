@@ -1,12 +1,16 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 template <class Base>
 class CPersonImpl : public Base
 {
 public:
 	CPersonImpl(const std::string& name, const std::string& surname, const std::string middleName ,const std::string& address)
-		: m_name(name), m_surname(surname), m_middleName(middleName) ,m_address(address)
+		: m_name(name)
+		, m_surname(surname)
+		, m_middleName(middleName)
+		, m_address(address)
 	{}
 	virtual std::string GetName() const
 	{

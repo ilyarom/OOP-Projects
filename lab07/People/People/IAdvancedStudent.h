@@ -4,5 +4,7 @@
 
 class IAdvancedStudent : public IStudent
 {
+public:
+	virtual ~IAdvancedStudent() {};
 	virtual std::string GetThesisTheme() const = 0;
 };

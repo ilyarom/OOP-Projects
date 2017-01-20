@@ -3,6 +3,8 @@
 #include "CPersonImpl.h"
 #include "ITeacher.h"
 #include <string>
+#include <iostream>
+
 
 class CTeacher : public CPersonImpl<ITeacher>
 {

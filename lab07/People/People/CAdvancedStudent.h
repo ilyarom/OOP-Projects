@@ -1,14 +1,14 @@
 #pragma once
 
 #include "CStudentImpl.h"
-#include "IStudent.h"
+#include "IAdvancedStudent.h"
 #include <string>
 
-class CAdvancedStudent : public CStudentImpl<IStudent>
+class CAdvancedStudent : public CStudentImpl<IAdvancedStudent>
 {
 public:
 	CAdvancedStudent(const std::string& name, const std::string& surname, const std::string& middleName, const std::string& address, const std::string& universityName, size_t studentTicketNumber, std::string thesisTheme)
-		: CStudentImpl<IStudent>(name, surname, middleName, address, universityName, studentTicketNumber)
+		: CStudentImpl<IAdvancedStudent>(name, surname, middleName, address, universityName, studentTicketNumber)
 		, m_thesisTheme(thesisTheme)
 	{}
 	std::string GetThesisTheme() const
