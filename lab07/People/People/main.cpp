@@ -28,7 +28,6 @@ void DoSomethingWithPerson(IPerson & person)
 
 int main()
 {
-	//CStudent s("ivan", "petrov", "sergeevich", "addr", "university", 4);
 	/*A * p = new B;
 	delete p;*/
 /*	IPerson * p = new CStudent("ivan", "petrov", "sergeevich", "addr", "university", 4);
